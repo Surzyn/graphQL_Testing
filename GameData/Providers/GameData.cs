@@ -18,6 +18,7 @@ namespace GameData
             _games.Add(new Game() { Id = 3, Name = "Fallout 4", Year = 2015, GameType = new List<GameType>() { GameType.Action, GameType.FPS, GameType.RPG } });
             _games.Add(new Game() { Id = 4, Name = "Witcher 3", Year = 2016, GameType = new List<GameType>() { GameType.Action, GameType.RPG } });
             _games.Add(new Game() { Id = 5, Name = "Fifa 2017", Year = 2016, GameType = new List<GameType>() { GameType.Sports } });
+            _games.Add(new Game() { Id = 5, Name = "Prison Architect", Year = 2016, GameType = new List<GameType>() { GameType.Simulations } });
         }
 
         public List<Game> Get()
