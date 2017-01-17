@@ -26,12 +26,12 @@ namespace GameData
             return _games.OrderBy(x => x.Id).ToList();
         }
 
-        public List<Game> GetAsync()
+        public List<Game> GetAll()
         {
             return _games;
         }
 
-        public Game GetAsync(int id)
+        public Game GetAll(int id)
         {
             return _games.FirstOrDefault(x => x.Id == id);
         }

@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameData", "GameData\GameDa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphQL-Testing", "GraphQLTest\GraphQL-Testing.csproj", "{CADD9E44-D08D-4F16-855F-4A8555870236}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PlayerData", "PlayerData\PlayerData.csproj", "{0C59B20E-F312-4B1D-849E-E02CCC6AA2C4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{7077A971-AB6B-4350-BCE0-F96FBF899453}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,8 +25,16 @@ Global
 		{CADD9E44-D08D-4F16-855F-4A8555870236}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CADD9E44-D08D-4F16-855F-4A8555870236}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CADD9E44-D08D-4F16-855F-4A8555870236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C59B20E-F312-4B1D-849E-E02CCC6AA2C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C59B20E-F312-4B1D-849E-E02CCC6AA2C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C59B20E-F312-4B1D-849E-E02CCC6AA2C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C59B20E-F312-4B1D-849E-E02CCC6AA2C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7A3515EC-E838-4A45-B1CC-98628A5CD1F8} = {7077A971-AB6B-4350-BCE0-F96FBF899453}
+		{0C59B20E-F312-4B1D-849E-E02CCC6AA2C4} = {7077A971-AB6B-4350-BCE0-F96FBF899453}
 	EndGlobalSection
 EndGlobal

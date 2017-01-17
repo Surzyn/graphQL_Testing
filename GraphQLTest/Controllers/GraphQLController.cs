@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
+﻿using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.Http;
 using GameData;
 using GraphQL;
@@ -18,7 +16,8 @@ namespace GraphQLTest.Controllers
 {
     public class GraphQLController : ApiController
     {
-        readonly Schema _schema = new Schema { Query = new GameQuery(new GameDataProvider()) };
+        //readonly Schema _schema = new Schema { Query = new GraphQLSchema(new PlayerData.Providers.PlayerData()) };
+        readonly Schema _schema = new Schema { Query = new GraphQLSchema(new PlayerData.Providers.PlayerData(), new GameDataProvider()) };
 
 
         [HttpPost]
@@ -34,6 +33,7 @@ namespace GraphQLTest.Controllers
                 _.Query = queryToExecute;
                 _.OperationName = query.OperationName;
                 _.Inputs = inputs;
+                _.UserContext = HttpContext.Current.User.Identity.Name;
 
                 _.ComplexityConfiguration = new ComplexityConfiguration { MaxDepth = 15 };
                 _.FieldMiddleware.Use<InstrumentFieldsMiddleware>();

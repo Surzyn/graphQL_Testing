@@ -123,11 +123,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Auth\AuthAttribute.cs" />
     <Compile Include="Controllers\GraphQLController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\GraphQLQuery.cs" />
+    <Compile Include="Helpers\GraphQLSchema.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +152,10 @@
     <ProjectReference Include="..\GameData\GameData.csproj">
       <Project>{7A3515EC-E838-4A45-B1CC-98628A5CD1F8}</Project>
       <Name>GameData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PlayerData\PlayerData.csproj">
+      <Project>{0C59B20E-F312-4B1D-849E-E02CCC6AA2C4}</Project>
+      <Name>PlayerData</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
