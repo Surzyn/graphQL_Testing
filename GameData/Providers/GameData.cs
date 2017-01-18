@@ -7,7 +7,14 @@ using GameData.Models;
 
 namespace GameData
 {
-    public class GameDataProvider
+    public interface IGameDataProvider
+    {
+        List<Game> Get();
+        List<Game> GetAll();
+        Game GetAll(int id);
+    }
+
+    public class GameDataProvider : IGameDataProvider
     {
         private List<Game> _games = new List<Game>();
 

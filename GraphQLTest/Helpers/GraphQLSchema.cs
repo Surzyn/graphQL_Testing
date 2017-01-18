@@ -2,14 +2,15 @@
 using GameData;
 using GameData.Types;
 using GraphQL.Types;
+using PlayerData.Providers;
 using PlayerData.Types;
 
 namespace GraphQLTest.Helpers
 {
-    public class GraphQLSchema : ObjectGraphType<object>
+    public class GraphQLSchema : ObjectGraphType
     {
 
-        public GraphQLSchema(PlayerData.Providers.PlayerData playerData, GameDataProvider gameData)
+        public GraphQLSchema(IPlayerData playerData, IGameDataProvider gameData)
         {
             Field<ListGraphType<GameTypeQL>>(
                 "games",
@@ -30,7 +31,6 @@ namespace GraphQLTest.Helpers
                     new QueryArgument<IntGraphType> { Name = "id", Description = "Id of game" }
                     ),
                 resolve: context => playerData.GetAll(context.GetArgument<int>("id")));
-
             Field<PlayerTypeQL>(
                 "showMe",
                 resolve: context => playerData.ShowMe((string)context.UserContext));

@@ -1,4 +1,5 @@
-﻿using System.Net;
+﻿using System;
+using System.Net;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,13 +12,24 @@ using GraphQL.Instrumentation;
 using GraphQL.Types;
 using GraphQL.Validation.Complexity;
 using GraphQLTest.Helpers;
+using PlayerData.Providers;
+using Type = GraphQL.Instrumentation.Type;
 
 namespace GraphQLTest.Controllers
 {
+
+
     public class GraphQLController : ApiController
     {
+        private readonly Schema _schema;
+
+        public GraphQLController(IPlayerData player, IGameDataProvider dd)
+        {
+            _schema = new Schema { Query = new GraphQLSchema(player, dd) };
+
+        }
+
         //readonly Schema _schema = new Schema { Query = new GraphQLSchema(new PlayerData.Providers.PlayerData()) };
-        readonly Schema _schema = new Schema { Query = new GraphQLSchema(new PlayerData.Providers.PlayerData(), new GameDataProvider()) };
 
 
         [HttpPost]
@@ -52,5 +64,6 @@ namespace GraphQLTest.Controllers
             return response;
         }
     }
+
 
 }

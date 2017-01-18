@@ -1,11 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using GameData;
+using GameData.Models;
 using PlayerData.Models;
 
 namespace PlayerData.Providers
 {
-    public class PlayerData
+    public interface IPlayerData
+    {
+        List<Player> GetAll();
+        Player GetAll(int playerId);
+        IEnumerable<Player> GetFriends(Player player);
+        Player ShowMe(string userContext);
+    }
+
+    public class PlayerData : IPlayerData
     {
         private List<Player> _players = new List<Player>();
 
@@ -44,6 +54,12 @@ namespace PlayerData.Providers
         {
             return _players.FirstOrDefault(z => z.Name == userContext);
 
+        }
+
+        public IEnumerable<Game> GetGames(Player player)
+        {
+            var games = new GameDataProvider(); //TODO: fix this
+            return games.GetAll().Where(x => player.Games.Contains(x.Id));
         }
     }
 }

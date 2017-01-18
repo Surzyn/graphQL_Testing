@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\CharacterInterface.cs" />
     <Compile Include="Models\Player.cs" />
     <Compile Include="PlayerQuery.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
